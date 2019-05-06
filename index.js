@@ -1,6 +1,19 @@
 class noMoreBubbles {
     constructor(mod) { 
-		mod.hook("S_QUEST_BALLOON", "raw", ()=> false);
+		let npcs = new Set();
+
+		mod.command.add("bl", {
+			$default() { mod.settings.enabled = !mod.settings.enabled; },
+			pets() { mod.settings.onlyPets = !mod.settings.onlyPets; }
+		});
+
+		mod.hook("S_SPAWN_NPC", 11, (event)=> { npcs.add(event.gameId); });
+		mod.hook("S_DESPAWN_NPC", 3, (event)=> { npcs.delete(event.gameId); });
+		mod.hook("S_QUEST_BALLOON", 1, (event) => {
+			if(!mod.settings.enabled) return;
+			if(mod.settings.onlyPets && !npcs.has(event.source)) return false;
+			else if(!mod.settings.onlyPets) return false;
+		});
 	}
 }
 

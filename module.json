@@ -2,10 +2,14 @@
     "disableAutoUpdate": false,
     "name": "NoMoreWastedBubbles",
     "author": "SaltyMonkey",
-    "description": "Removing all baloons from NPC",
+    "description": "Removing baloons from NPC/Pets",
+    "version": "1.0",
     "options": {
-        "niceName": "NMWB",
-        "guiName": "NoMoreWastedBubbles"
+        "niceName": "NoMoreWastedBubbles",
+        "guiName": "NoMoreWastedBubbles",
+        "settingsVersion": 1,
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings_migrator.js"
     },
     "servers": ["https://raw.githubusercontent.com/SaltyMonkey/no-more-wasted-bubbles/master"],
     "supportUrl": "https://github.com/SaltyMonkey/no-more-wasted-bubbles/issues"
