@@ -9,7 +9,7 @@ class noMoreBubbles {
 
 		mod.hook("S_SPAWN_NPC", 11, (event)=> { 
 			npcs.add(event.gameId); 
-			if(event.replaceId !== 0n) npc.delete(event.replaceId);
+			if(event.replaceId !== 0n) npcs.delete(event.replaceId);
 		});
 		mod.hook("S_DESPAWN_NPC", 3, (event)=> { npcs.delete(event.gameId); });
 		
